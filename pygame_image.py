@@ -10,6 +10,7 @@ def main():
     kt_img = pg.image.load("ex01/fig/3.png")
     kt_img = pg.transform.flip(kt_img, True, False)
     kt_img = pg.transform.rotozoom(kt_img, 10, 1.0)
+    ls = [kt_img]
 
 
     tmr = 0
@@ -18,6 +19,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
+        screen.blit(kt_img, [300,200])
         pg.display.update()
         tmr += 1        
         clock.tick(10)
