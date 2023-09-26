@@ -9,16 +9,18 @@ def main():
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
     kt_img = pg.image.load("ex01/fig/3.png")
     kt_img = pg.transform.flip(kt_img, True, False)
-    kt_img2 = pg.transform.rotozoom(kt_img, 10, 1.0)
-    kt_imgs = [kt_img, kt_img2]
+    kt_img2= pg.transform.rotozoom(kt_img, 10, 1.0)
 
+
+    kt_imgs = [kt_img,kt_img2]
 
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
-        screen.blit(bg_img, [0, 0])
+        x = tmr%1600
+        screen.blit(bg_img, [-x, 0])
+        screen.blit(bg_img2,[1600-x,0])
         screen.blit(kt_imgs[tmr%2], [300,200])
         pg.display.update()
         tmr += 1        
